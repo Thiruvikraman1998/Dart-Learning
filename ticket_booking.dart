@@ -15,7 +15,7 @@ class Passenger {
   //     this.dateOfJourney = dateOfJourney;
   Passenger();
 
-  void passengerDatas() {
+  void ticket() {
     // stdout.write("Please enter passenger Name: ");
     // String passName = stdin.readLineSync()!;
     // this.name = passName;
@@ -28,8 +28,9 @@ class Passenger {
     // stdout.write("Please enter travel Date: ");
     // dynamic travelDate = stdin.readLineSync().toString();
     // this.dateOfJourney = travelDate;
-
-    stdout.write("Tickets booked successfully");
+    stdout.write(
+        "\n Passenger name: $name \n Passenger age: $age \n Passenger Gender: $gender \n Travel Date: $dateOfJourney \n");
+    stdout.write("Your tickets booked successfully");
   }
 }
 
@@ -45,20 +46,25 @@ void main() {
 
   // stdout.write("Please enter travel Date: ");
   // String traveldate = stdin.readLineSync()!;
-  Passenger p1 = Passenger();
+  stdout.write("No.of tickets: \n");
+  int noOfTickets = int.parse(stdin.readLineSync()!);
+  Passenger tickets = Passenger();
+  stdout.write("Please enter travel Date: ");
+  tickets.dateOfJourney = stdin.readLineSync();
   // p1.name = name;
   // p1.age = age;
   // p1.gender = gender;
   // p1.dateOfJourney = traveldate;
-  stdout.write("Please enter passenger Name: ");
-  p1.name = stdin.readLineSync();
+  for (int i = 1; i <= noOfTickets; i++) {
+    tickets.i = Passenger();
+    stdout.write("Please enter passenger Name: ");
+    tickets.name = stdin.readLineSync();
 
-  stdout.write("Please enter passenger Age: ");
-  p1.age = int.parse(stdin.readLineSync()!);
+    stdout.write("Please enter passenger Age: ");
+    tickets.age = int.parse(stdin.readLineSync()!);
 
-  stdout.write("Please enter passenger Gender: ");
-  p1.gender = stdin.readLineSync()!;
-
-  stdout.write("Please enter travel Date: ");
-  p1.dateOfJourney = stdin.readLineSync()!;
+    stdout.write("Please enter passenger Gender: ");
+    tickets.gender = stdin.readLineSync()!;
+  }
+  tickets.ticket();
 }
