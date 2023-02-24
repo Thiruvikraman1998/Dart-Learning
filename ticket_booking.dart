@@ -7,17 +7,17 @@ class Passenger {
   int? age;
   String? gender;
 
-  Passenger({required this.name, required this.age, required this.gender});
+  Passenger(this.name, this.age, this.gender);
 
   void ticket() {
-    stdout.write(
-        "\n Passenger name: $name \n Passenger age: $age \n Passenger Gender: $gender \n");
+    // stdout.write(
+    //     "\n Passenger name: $name \n Passenger age: $age \n Passenger Gender: $gender \n");
     stdout.write("Your tickets booked successfully");
   }
 }
 
 void main() {
-  List<Passenger>? ticketList;
+  List<Passenger> ticketList = [];
   String? passName;
   int? passAge;
   String? passGender;
@@ -28,8 +28,7 @@ void main() {
   stdout.write("Please enter travel Date: ");
   String? dateOfJourney = stdin.readLineSync();
 
-  Passenger tickets =
-      Passenger(name: passName, age: passAge, gender: passGender);
+  Passenger tickets = Passenger(passName, passAge, passGender);
 
   for (int i = 1; i <= noOfTickets; i++) {
     stdout.write("Please enter passenger Name: ");
@@ -44,16 +43,23 @@ void main() {
     tickets.gender = stdin.readLineSync();
     passGender = tickets.gender;
 
-    ticketList!
-        .add(Passenger(name: passName, age: passAge, gender: passGender));
+    ticketList.add(Passenger(passName, passAge, passGender));
   }
 
-  print("Your travel date is: $dateOfJourney");
+  print("\n \n Your travel date is: $dateOfJourney");
 
-  tickets.ticket();
+  //tickets.ticket();
+  void viewTicket() {
+    for (Passenger finalTickets in ticketList) {
+      String? finalName = finalTickets.name;
+      int? finalAge = finalTickets.age;
+      String? finalGender = finalTickets.gender;
 
-  for (Passenger tickets in ticketList!) {
-    print(tickets);
+      stdout.write(
+          "\n Passenger name: $finalName \n Passenger age: $finalAge \n Passenger Gender: $finalGender \n");
+    }
   }
+
+  viewTicket();
   tickets.ticket();
 }

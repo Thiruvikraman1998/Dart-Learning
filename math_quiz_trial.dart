@@ -22,7 +22,7 @@ void main() {
 
     List<dynamic> ques = [Mathquiz("5 + 5", 10.0), Mathquiz("5 - 5", 0.0), Mathquiz('2 * 2', 4.0), Mathquiz("10 / 2", 5.0), Mathquiz("7-3", 4.0)];
 
-    double? userInput;
+    //double? userInput;
     int score = 0;
     int count = 0;
 

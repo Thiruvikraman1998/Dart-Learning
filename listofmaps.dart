@@ -18,8 +18,12 @@ void main() {
       'answers': ['Vikram', 'Raj', 'Rajesh']
     },
   ];
-
-  (questions[questionIndex]['answers'] as List<String>).map((answer) {
-    return answers(answer);
-  }).toList();
+    int option = 0;
+  for (questionIndex = 0; questionIndex < questions.length; questionIndex++) {
+    option++;
+    print('Options: ${option}');
+    (questions[questionIndex]['answers'] as List<String>).map((answer) {
+      return answers(answer);
+    }).toList();
+  }
 }
