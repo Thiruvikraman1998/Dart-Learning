@@ -61,19 +61,16 @@ void main() {
     print("No passengers added");
   }
 
-  num totalFare = fare * ticketList.where((i) => i.age! > 5).length;
+  num totalFare =
+      fare * ticketList.where((i) => i.age! > 5).length;
 
   print("\n \n Your travel date is: $dateOfJourney");
 
   //tickets.ticket();
   void viewTicket() {
     for (Passenger finalTickets in ticketList) {
-      String? finalName = finalTickets.name;
-      int? finalAge = finalTickets.age;
-      String? finalGender = finalTickets.gender;
-
-      stdout.write(
-          "\n Passenger name: $finalName \n Passenger age: $finalAge \n Passenger Gender: $finalGender \n");
+      print(
+          "\n Passenger name: ${finalTickets.name} \n Passenger age: ${finalTickets.age} \n Passenger Gender: ${finalTickets.gender} \n");
     }
   }
 
