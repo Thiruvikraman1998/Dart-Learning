@@ -27,9 +27,11 @@ void main() {
   stdout.write("Please enter travel Date: ");
   String? dateOfJourney = stdin.readLineSync();
 
+ Passenger tickets = Passenger(passName, passAge, passGender);
+
   print("Add Passenger?(y/n)");
   String? addPassenger = stdin.readLineSync();
-  Passenger tickets = Passenger(passName, passAge, passGender);
+  
 
   if (addPassenger == "y") {
     noOfTickets = noOfTickets + 1;
@@ -40,7 +42,7 @@ void main() {
       //passName = tickets.name;
 
       stdout.write("Please enter passenger Age: ");
-      tickets.age = int.parse(stdin.readLineSync()!);
+      tickets.age = int.parse(stdin.readLineSync()!) <= 100;
       //passAge = tickets.age;
 
       stdout.write("Please enter passenger Gender: ");
