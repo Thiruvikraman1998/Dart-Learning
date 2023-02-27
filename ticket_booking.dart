@@ -37,17 +37,17 @@ void main() {
     for (int i = noOfTickets; i <= noOfTickets; i++) {
       stdout.write("Please enter passenger Name: ");
       tickets.name = stdin.readLineSync();
-      passName = tickets.name;
+      //passName = tickets.name;
 
       stdout.write("Please enter passenger Age: ");
       tickets.age = int.parse(stdin.readLineSync()!);
-      passAge = tickets.age;
+      //passAge = tickets.age;
 
       stdout.write("Please enter passenger Gender: ");
       tickets.gender = stdin.readLineSync();
-      passGender = tickets.gender;
+      //passGender = tickets.gender;
 
-      ticketList.add(Passenger(passName, passAge, passGender));
+      ticketList.add(Passenger(tickets.name, tickets.age, tickets.gender));
 
       print("Do you want to add more passengers:(y/n)");
       String? addMorePass = stdin.readLineSync();
@@ -59,10 +59,11 @@ void main() {
     }
   } else {
     print("No passengers added");
+      return;   // if the passenger is not added then it print the above else and stops the code, which in other words, compiler omits the rest of the code below.
   }
 
-  num totalFare =
-      fare * ticketList.where((i) => i.age! > 5).length;
+  num totalFare = fare * ticketList.where((i) => i.age! > 5).length;  
+    // here i is the iterables of the list, we can use our own variables there. i is the value of the Passenger constructor inside the list. and it checks if the passenger age is greater than 5 then it only will get multiplied by the fare and shows the exact value, we used this to omit the fare for kids whose age is below than 5.
 
   print("\n \n Your travel date is: $dateOfJourney");
 
