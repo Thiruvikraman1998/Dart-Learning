@@ -61,7 +61,7 @@ void main() {
     print("No passengers added");
   }
 
-  num totalFare = fare * noOfTickets;
+  num totalFare = fare * ticketList.where((i) => i.age! > 5).length;
 
   print("\n \n Your travel date is: $dateOfJourney");
 
