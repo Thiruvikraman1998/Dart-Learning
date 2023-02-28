@@ -21,6 +21,9 @@
 //   // ??= operator is called null-aware asignment operator.
 // }
 
+// best null safety practice instead of forcing tha object as not null(!),
+// check out this link: https://stackoverflow.com/questions/17006664/what-is-the-dart-null-checking-idiom-or-best-practice
+
 makeCoffee(String coffee, [String? dairy]) {
   if (dairy != null) {
     print('$coffee with $dairy');
