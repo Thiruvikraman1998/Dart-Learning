@@ -1,3 +1,5 @@
+// Rock Paper Scissor game.
+
 import 'dart:io';
 import 'dart:math';
 
