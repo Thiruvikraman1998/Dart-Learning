@@ -27,11 +27,10 @@ void main() {
   stdout.write("Please enter travel Date: ");
   String? dateOfJourney = stdin.readLineSync();
 
- Passenger tickets = Passenger(passName, passAge, passGender);
+  Passenger tickets = Passenger(passName, passAge, passGender);
 
   print("Add Passenger?(y/n)");
   String? addPassenger = stdin.readLineSync();
-  
 
   if (addPassenger == "y") {
     noOfTickets = noOfTickets + 1;
@@ -42,7 +41,7 @@ void main() {
       //passName = tickets.name;
 
       stdout.write("Please enter passenger Age: ");
-      tickets.age = int.parse(stdin.readLineSync()!) <= 100;
+      tickets.age = int.parse(stdin.readLineSync()!);
       //passAge = tickets.age;
 
       stdout.write("Please enter passenger Gender: ");
@@ -61,11 +60,12 @@ void main() {
     }
   } else {
     print("No passengers added");
-      return;   // if the passenger is not added then it print the above else and stops the code, which in other words, compiler omits the rest of the code below.
+    return; // if the passenger is not added then it print the above else and stops the code, which in other words, compiler omits the rest of the code below.
   }
 
-  num totalFare = fare * ticketList.where((i) => i.age! > 5).length;  
-    // here i is the iterables of the list, we can use our own variables there. i is the value of the Passenger constructor inside the list. and it checks if the passenger age is greater than 5 then it only will get multiplied by the fare and shows the exact value, we used this to omit the fare for kids whose age is below than 5.
+  num totalFare = fare * ticketList.where((i) => (i.age ?? 0) > 5).length;
+     //(i.age ?? 0) means assigning default value of 0 if the input age is null.
+  // here i is the iterables of the list, we can use our own variables there. i is the value of the Passenger constructor inside the list. and it checks if the passenger age is greater than 5 then it only will get multiplied by the fare and shows the exact value, we used this to omit the fare for kids whose age is below than 5.
 
   print("\n \n Your travel date is: $dateOfJourney");
 
