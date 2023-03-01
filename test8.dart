@@ -4,45 +4,56 @@ import 'dart:io';
 import 'dart:math';
 
 void main() {
-  Map<String, String> rules = {
-    "rock": "scissors",
-    "scissors": "paper",
-    "paper": "rock"
-  };
-
-  List<String> options = ['Rock', 'Paper', 'Scissor'];
-
+  Map rules = {"rock": "scissor", "scissor": "paper", "paper": "rock"};
   int user = 0;
   int comp = 0;
+  List<String> options = ["rock", "paper", "scissor"];
 
   print(
-      "Welcome to Rock, Paper and Scissor game \n press 'y' to start the game");
-  String start = stdin.readLineSync() ?? '';
+      "\n Welcome to rock paper scissor game do you want to start the game? enter (y/n)");
+  String startGame = stdin.readLineSync() ?? '';
 
-  while (start == 'y') {
+  if (startGame == "n") {
+    print("See you next time");
+    return;
+  }
+
+  while (startGame == 'y') {
     String compChoice = options[Random().nextInt(options.length)];
-    print("\nPlease choose Rock, Paper or Scissors: ");
+    print("Choose a choice");
     String userChoice = stdin.readLineSync() ?? ''.toLowerCase();
-
-    if (userChoice == 'exit') {
-      print("Game end score is you: $user -- comp $comp");
+    if (userChoice == "exit") {
+      print("Game ends");
       break;
     }
 
     if (!options.contains(userChoice)) {
-      print("Enter a correct choice");
+      print("Enter valid input:");
+    } else if (userChoice == compChoice) {
+      print("Both choosed same its a tie!");
     } else if (rules[compChoice] == userChoice) {
-      print("You lost try again");
+      print("Computer choosed: $compChoice");
+      print("Computer gains 1 point");
       comp += 1;
     } else if (rules[userChoice] == compChoice) {
-      print("Comp lost play again");
+      print("Computer choosed: $compChoice");
+      print("You gain 1 point");
       user += 1;
     }
   }
+  print("Game over \n You: $user  ---  Computer: $comp");
+  if (user > comp) {
+    print("Hurray you won");
+  } else {
+    print("Computer wins, better luck next time");
+  }
 }
 
+// In the above code the rules[compChoice] checks if its value is equal to the user choice from the map. here if the comp chooses rock and user chooses paper then it first checks the else if statement (rules[compChoice] == userChoice) now in the results map the key is rock that the comp choose, and it checks if the key's value is equal to the userChoice, if true then it prints, if false then it checks the other condition.
 
+// We can simply solve this code using if else alone, the above code is bit complex to understand, but its still usefull and time consuming.
 
+// Below code explains using if else.
 
 // import 'dart:io';
 // import 'dart:math';
