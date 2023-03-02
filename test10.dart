@@ -13,6 +13,8 @@ void guessPrime(int number) {
     }
   }
   print(a);
+
+    //using ternary operator
   a.length == 2
       ? print("The number is prime")
       : print("The number is not prime");
